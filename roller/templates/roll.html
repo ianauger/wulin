@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="", method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.numberDice.label }}
+        {{ form.numberDice(size=8) }}
+        {{ form.roll() }}
+        {% for error in form.numberDice.errors %}
+        <span color="red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+</form>
+<p>
+    {% if results %}
+        {% for result in results %}
+        <li>{{ result }}</li>
+        {% endfor %}
+    {% endif %}
+</p>
+
+{% endblock %}
